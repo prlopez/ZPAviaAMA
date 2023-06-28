@@ -1,0 +1,100 @@
+{
+  "properties": {
+    "immutableId": "dcr-d5ad8f5386e34074a6c5676466d3069b",
+    "dataCollectionEndpointId": "/subscriptions/e679ff63-15e0-465d-a25b-5598ef08d05e/resourceGroups/sentinel-zpa-ama_group/providers/Microsoft.Insights/dataCollectionEndpoints/dce-sentinel-zpa-ama",
+    "streamDeclarations": {
+      "Custom-MyTable_CL": {
+        "columns": [
+          {
+            "name": "TimeGenerated",
+            "type": "datetime"
+          },
+          {
+            "name": "RawData",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "dataSources": {
+      "syslog": [
+        {
+          "streams": [
+            "Microsoft-Syslog"
+          ],
+          "facilityNames": [
+            "auth",
+            "authpriv",
+            "cron",
+            "daemon",
+            "mark",
+            "kern",
+            "local0",
+            "local1",
+            "local2",
+            "local3",
+            "local4",
+            "local5",
+            "local6",
+            "local7",
+            "lpr",
+            "mail",
+            "news",
+            "syslog",
+            "user",
+            "uucp"
+          ],
+          "logLevels": [
+            "Debug",
+            "Info",
+            "Notice",
+            "Warning",
+            "Error",
+            "Critical",
+            "Alert",
+            "Emergency"
+          ],
+          "name": "sysLogsDataSource-1688419672"
+        }
+      ]
+    },
+    "destinations": {
+      "logAnalytics": [
+        {
+          "workspaceResourceId": "/subscriptions/e679ff63-15e0-465d-a25b-5598ef08d05e/resourceGroups/sentinel-rg/providers/Microsoft.OperationalInsights/workspaces/sentinel",
+          "workspaceId": "52352b49-df95-4b28-93da-5cba18475c79",
+          "name": "la--1944513542"
+        }
+      ]
+    },
+    "dataFlows": [
+      {
+        "streams": [
+          "Microsoft-Syslog"
+        ],
+        "destinations": [
+          "la--1944513542"
+        ],
+        "transformKql": "source | where SyslogMessage has \"ZPA LSS Client\" | extend Message=SyslogMessage",
+        "outputStream": "Custom-ZPA_CL"
+      }
+    ],
+    "provisioningState": "Succeeded"
+  },
+  "location": "australiaeast",
+  "tags": {},
+  "kind": "Linux",
+  "id": "/subscriptions/e679ff63-15e0-465d-a25b-5598ef08d05e/resourceGroups/sentinel-rg/providers/Microsoft.Insights/dataCollectionRules/dcr-sentinel-zpa-ama",
+  "name": "dcr-sentinel-zpa-ama",
+  "type": "Microsoft.Insights/dataCollectionRules",
+  "etag": "\"16000039-0000-1a00-0000-649bf1b40000\"",
+  "systemData": {
+    "createdBy": "prlopez@zedscaler.onmicrosoft.com",
+    "createdByType": "User",
+    "createdAt": "2023-06-28T08:39:14.0171037Z",
+    "lastModifiedBy": "prlopez@zedscaler.onmicrosoft.com",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "2023-06-28T08:39:14.0171037Z"
+  }
+}
+

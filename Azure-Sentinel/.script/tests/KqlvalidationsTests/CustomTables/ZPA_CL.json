@@ -1,0 +1,29 @@
+{
+    "Name": "ZPA_CL",
+    "Properties": [
+        {
+            "name": "Computer",
+            "type": "String"
+        },
+        {
+            "name": "ManagementGroupName",
+            "type": "String"
+        },
+        {
+            "name": "RawData",
+            "type": "String"
+        },
+        {
+            "name": "SourceSystem",
+            "type": "String"
+        },
+        {
+            "name": "TimeGenerated",
+            "type": "DateTime"
+        }, 
+        {
+            "name": "Message",
+            "type": "String"
+        }
+    ]
+}
